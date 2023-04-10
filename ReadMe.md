@@ -23,16 +23,31 @@
 
 ### 9) EXPOSE 5000: This exposes port 5000 for the Flask app to listen on.
 
-### 10) CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]: This starts the Flask app using Gunicorn, which is a production-ready WSGI server. The --bind flag binds Gunicorn to port 5000, and app:app specifies the Flask app object to run.
+### 10 & 11) Installing gunicorn and creating a path for it.
 
-### 11) Overall, this Dockerfile follows best practices by using a minimal base image, installing only required packages, setting environment variables, and running the app as a non-root user.
+### 12) CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]: This starts the Flask app using Gunicorn, which is a production-ready WSGI server. The --bind flag binds Gunicorn to port 5000, and app:app specifies the Flask app object to run.
 
-
-
-
+### 13) Overall, this Dockerfile follows best practices by using a minimal base image, installing only required packages, setting environment variables, and running the app as a non-root user.
 
 
+## Shell Scripts Insights:
 
+### As we have created the dockerfile and build the images, plus executes the k8s deployments and service via shell script now its the time to open the external ports for apps to access from host machine. #This is an additional step becuz of minikube.
+
+### 1) dockerhub_script.sh: this file builds the dockerfile and pushes it onto dockerhub. 
+
+## Note: To run this you need to have environment variables set as :
+
+### export DOCKER_USERNAME=my_username
+### export DOCKER_PASSWORD=my_password
+
+### 2) k8s_script.sh: It enter's minukube env delete existing image if any, pull new image from docker image, start deployment for our app and then creates a service for it after that exposes an endpoint to be accessible in our localhost.
+
+### 3) remove_resources.sh: This is deleting the already created deployment and service so the memory is free once your work is done.
+
+
+
+## Application Insights: 
 ## app.py: This file is the main Python Flask application that sets up the server and defines the various routes for handling incoming requests. In this specific project, there is only one route defined for the root URL ("/"), and it simply renders the index.html template.
 
 ## index.html: This file is an HTML file that defines the structure and content of the web page that will be served to the user. It includes a header section, a main section with multiple columns, and a couple of blog post sections. It also includes a reference to a stylesheet (style.css) that defines the visual appearance of the web page.
