@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mypython-flaskapp
+  labels:
+    app: mypython-flaskapp
+spec:
+  replicas: 2
+  minReadySeconds: 10
+  selector:
+    matchLabels:
+      app: mypython-flaskapp
+  template:
+    metadata:
+      labels:
+        app: mypython-flaskapp
+    spec:
+      containers:
+        - name: mypython-flaskapp
+          image: dhruvohra23/mypython_flaskapp:latest # your image name and tag
+          ports:
+            - containerPort: 5000
+          resources:
+            limits:
+              cpu: "0.5"
+              memory: "512Mi"
+            requests:
+              cpu: "0.2"
+              memory: "256Mi"

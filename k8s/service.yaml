@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mypython-flaskapp-service
+  labels:
+    app: mypython-flaskapp
+spec:
+  type: NodePort
+  ports:
+    - name: pythonapp-service
+      port: 5200
+      targetPort: 5000
+      protocol: TCP
+    - name: healthcheck
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: mypython-flaskapp
+  # Use a fixed nodePort value (30001 in this example)
+  # or let Kubernetes assign a random one:
+  #nodePort: 30001
