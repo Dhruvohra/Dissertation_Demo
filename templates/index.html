@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+    </header>
+    <main>
+        <img src="{{ url_for('static', filename='profile.jpeg') }}" alt="Profile image" class="profile-image">
+        <div class="column">
+            <h2>About</h2>
+            <p>My name is Dhruv</p>
+        </div>
+        <div class="column">
+            <h2>Education</h2>
+            <ul>
+                <li>Bachelor's degree in Computer Science</li>
+                <li>Master's degree in Software Engineering</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h2>Experience</h2>
+            <ul>
+                <li>Software Engineer at XYZ Company (2015-present)</li>
+                <li>Web Developer at ABC Agency (2013-2015)</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h2>Skills</h2>
+            <ul>
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>HTML/CSS</li>
+                <li>Flask</li>
+                <li>Django</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h2>Hobbies</h2>
+            <ul>
+                <li>Reading</li>
+                <li>Hiking</li>
+                <li>Photography</li>
+            </ul>
+        </div>
+        <div class="blog-post">
+            <h3>My First Blog Post</h3>
+            <p>DevOps Engineer</p>
+            <a href="#">Read more</a>
+        </div>
+        <div class="blog-post">
+            <h3>My Second Blog Post</h3>
+            <p>Dhruv Vohra.................</p>
+            <a href="#">Read more</a>
+        </div>
+    </main>
+</body>
+</html>

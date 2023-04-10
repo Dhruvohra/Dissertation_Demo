@@ -1,0 +1,47 @@
+/* style.css */
+
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+.profile-image {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.column {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.column h2 {
+  margin-top: 0;
+}
+
+.blog-post {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #eee;
+}
+
+.blog-post h3 {
+  margin-top: 0;
+}
+
+.blog-post p {
+  margin-bottom: 1rem;
+}
+
+.blog-post a {
+  color: #333;
+  font-weight: bold;
+}
