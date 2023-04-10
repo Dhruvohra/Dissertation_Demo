@@ -31,5 +31,11 @@ USER myuser
 # Expose port 5000 for the Flask app to listen on
 EXPOSE 5000
 
+# Installing gunicorn
+RUN pip install gunicorn
+
+# Setting the path for gunicorn
+ENV PATH="/home/myuser/.local/bin:${PATH}"
+
 # Run the command to start the Flask app
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
